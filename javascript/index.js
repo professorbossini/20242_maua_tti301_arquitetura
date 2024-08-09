@@ -1,3 +1,159 @@
+//uma calculadora que faz soma e subtracao
+//cada operacao envolve dois operandos
+//a soma é uma função regular
+//a subtração é uma arrow function que não usa return
+const calc = {
+  soma: function(a, b){
+    return a + b
+  },
+  subtracao: (a, b) => calc.soma(a, -b)
+}
+console.log(calc.soma(2, 2))
+console.log(calc.subtracao(3, 2))
+
+// const concessionaria = {
+//   cnpj: '123456789',
+//   endereco: {
+//     logradouro: 'Rua J',
+//     numero: 43
+//   },
+//   carros: [
+//     {
+//       marca: 'VW',
+//       modelo: 'Fusca',
+//       ano: 1995
+//     },
+//     {
+//       marca: 'Toyota',
+//       modelo: 'Corolla',
+//       ano: 2023
+//     }
+//   ]
+// }
+
+// //completar essa funçao
+// const encontraVeiculos = (marca) => {
+//   //ela devolve uma coleção que contem todos os veiculos da marca recebida como parametro
+//   //use a função filter
+// }
+
+// console.log(encontraVeiculos('Toyota'))
+
+
+// for (const carro of concessionaria.carros){
+//   if(carro.modelo === 'Corolla')
+//     console.log(carro)
+// }
+
+//iterar sobre a coleção inteira, usando for/of e, quando encontrar o Corolla, exibir todos os seus dados
+//mozilla developer network
+
+//usando apenas o operador [], mostre o modelo do segundo carro
+// console.log(concessionaria['carros'][1]['modelo'])
+
+// const carros = [
+//   {
+//     marca: 'VW',
+//     modelo: 'Fusca',
+//     ano: 1989
+//   },
+//   {
+//     marca: 'Toyota',
+//     modelo: 'Corolla',
+//     ano: 2024
+//   }
+// ]
+// console.log(carros[0].marca)
+// console.log(carros[0]['ano'])
+
+
+//objetos Javascript
+//uma concessionária de veículos tem CNPJ e endereço. Ela possui alguns carros
+//em estoque. Cada um deles tem marca, modelo e ano de fabricacao.
+
+//uma pessoa que se chama Maria, tem 21 anos e mora na rua B, número 121
+// let pessoa = {
+//   nome: 'Maria',
+//   idade: 21,
+//   endereco: {
+//       logradouro: 'Rua B',
+//       numero: 121
+//   }
+// }
+// console.log(pessoa.endereco.logradouro)
+// console.log(pessoa['endereco']['numero'])
+// console.log(pessoa['endereco'].logradouro)
+// console.log(pessoa.endereco['numero'])
+
+
+//uma pessoa que se chama João e tem 17 anos
+// let pessoa = {
+//   nome: 'João',
+//   idade: 17
+// }
+// console.log(pessoa)
+// console.log(pessoa.nome)
+// console.log(pessoa['nome'])
+
+// function eAgora(){
+//   let cont = 1
+//   function f1(){
+//     console.log(cont)
+//   }
+//   cont++
+//   function f2(){
+//     console.log(cont)
+//   }
+//   cont++
+//   function f3(){
+//     cont++
+//   }
+//   f3()
+//   return {f1, f2}
+// }
+
+// let eAgoraResult = eAgora()
+
+// eAgoraResult.f1()
+// eAgoraResult.f2()
+
+
+//closure
+// function saudacoesFactory(saudacao, nome){
+//   return function(){
+//     console.log (`${saudacao}, ${nome}`)
+//   }
+// }
+
+// let olaJoao = saudacoesFactory('Olá', 'João')
+// let tchauJoao = saudacoesFactory('Tchau', 'João')
+// olaJoao()
+// tchauJoao()
+
+
+// function ola(){
+//   let nome = 'João'
+//   return function(){
+//     console.log(`Olá, ${nome}`)
+//   }
+// }
+// let olaResult = ola()
+// olaResult()
+
+
+
+
+// function f (){
+//   let nome = 'João'
+//   function g(){
+//     let idade = 19
+//     console.log(nome)
+//   }
+//   g()
+// }
+// f()
+
+
 
 
 // function f(){
