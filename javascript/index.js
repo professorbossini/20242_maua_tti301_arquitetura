@@ -1,15 +1,139 @@
+//promises
+function calculoRapidinho(n){
+  return n >= 0 ?Promise.resolve( n * (n+1) / 2) : Promise.reject('Somente positivos')
+  //se n >= 0, devolva uma promise fullfilled com o resultado correspondente
+
+  //caso contrário, devolva uma promise rejected dizendo somente valores positivos, por favor  
+}
+
+//teste da seguinte forma
+
+calculoRapidinho(10).then((res) => console.log(res), (erro) => console.log(`Erro: ${erro}`))
+
+calculoRapidinho(-1).then((res) => console.log(res), (erro) => console.log(`Erro: ${erro}`))
+// calculoRapidinho(10)
+// .then(resultado => console.log(resultado))
+// .catch(erro => console.log(`Erro: ${erro}`))
+
+// calculoRapidinho(10).then()
+
+// calculoRapidinho(-1)
+// .then(resultado => console.log(resultado))
+// .catch(erro => console.log(`Erro: ${erro}`))
+
+
+//1 + 2 + ... + (n - 1) + n
+// const calculoRapidinho = (n) => {
+//   return Promise.resolve((n * (n + 1)) / 2)
+//   // let p = new Promise((sucesso, falha) => {
+      
+//   // })
+// }
+// calculoRapidinho(10).then(resultado => console.log(resultado))
+// function calculoDemorado(n){
+//   let p = new Promise(function(resolve, reject){
+//     let res = 0
+//     for(let i = 1; i <= n; i++) res += i
+//     resolve(res)
+//   })
+//   return p
+// }
+
+// let resultadoPromise = calculoDemorado(10)
+// resultadoPromise
+// .then((resultado) => {
+//   console.log(`Resultado: ${resultado}`)
+//   calculoDemorado(resultado).then((resultado2) => {
+//     console.log(resultado2)
+//   })
+// })
+// .catch((erro) => {
+//   console.log(`Erro: ${erro}`)
+// })
+
+
+// const fs = require('fs')
+// const abrirArquivo = function(nomeArquivo){
+//   console.log('Começou a função abrirArquivo..')
+//   const exibirConteudo = function(erro, conteudo){
+//     if(erro){
+//       console.log(`Erro: ${erro}`)
+//     }
+//     else{
+//       console.log(`Conteúdo: ${conteudo.toString()}`)
+//       const dobro = +conteudo.toString() * 2
+//       const finalizar = function (erro){
+//         if(!erro)
+//           console.log('Salvou o dobro com sucesso')
+//         else
+//           console.log('Coisas ruins aconteceram..')
+//       }
+//       fs.writeFile('dobro.txt', dobro.toString(), finalizar)
+//     }
+//   }
+//   fs.readFile(nomeArquivo, exibirConteudo)
+//   console.log('Terminou a função abrirArquivo...')
+// }
+// abrirArquivo('arquivo.txt')
+// console.log('Começou...')
+// setTimeout(() => {
+//   console.log('Dentro da setTimeout')
+// }, 0)
+// const atualMais10 = new Date().getTime() + 10000
+// while(new Date().getTime() <= atualMais10);
+// console.log('Script principal terminou...')
+
+// function demorada(){
+//   const atualMais2Segundos = new Date().getTime() + 2000
+//   while(new Date().getTime() <= atualMais2Segundos);
+//   const d = 8 + 4
+//   return d
+// }
+// const a = 2 + 3
+// const b = 5 + 9
+// setTimeout(function(){
+//   const d = demorada()
+//   console.log(`d: ${d}`)
+// }, 500)
+// const e = 2 + a + b
+// console.log(e)
+// function demorada(){
+//   //const atualMais2Segundos = new Date().getTime() + 2000
+//   // const mili = new Date().getTime()
+//   // console.log(`mili: ${mili}`)
+//   // const seg = mili / 1000
+//   // console.log(`seg: ${seg}`)
+//   // const min = seg / 60
+//   // console.log(`min: ${min}`)
+//   // const hora = min / 60
+//   // console.log(`hora: ${hora}`)
+//   // const dia = hora / 24
+//   // console.log(`dia: ${dia}`)
+//   // const ano = dia / 365
+//   // console.log(`ano: ${ano}`)
+// }
+// demorada()
+
+// const a = 2 + 7
+// const b = 5
+// console.log(a + b)
+
+// console.log('Eu primeiro')
+// console.log('Agora eu')
+// console.log('Sempre vou ser a última...:(')
+
 //uma calculadora que faz soma e subtracao
 //cada operacao envolve dois operandos
 //a soma é uma função regular
 //a subtração é uma arrow function que não usa return
-const calc = {
-  soma: function(a, b){
-    return a + b
-  },
-  subtracao: (a, b) => calc.soma(a, -b)
-}
-console.log(calc.soma(2, 2))
-console.log(calc.subtracao(3, 2))
+// const calc = {
+//   soma: function(a, b){
+//     return a + b
+//   },
+//   subtracao: (a, b) => calc.soma(a, -b)
+// }
+// console.log(calc.soma(2, 2))
+// console.log(calc.subtracao(3, 2))
 
 // const concessionaria = {
 //   cnpj: '123456789',
