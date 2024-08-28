@@ -1,0 +1,3 @@
+1- Refazer a parte then/catch com async/await
+2- Pesquisar, no npmjs.com, um pacote para obtenção de dados digitados pelo usuário, e permitir que ele informe a cidade
+para a qual deseja previsões
