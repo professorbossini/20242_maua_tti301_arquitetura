@@ -1,6 +1,8 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 app.use(express.json())
+const { PORT } = process.env
 /*
 {
   1: {
@@ -31,3 +33,5 @@ app.post('/lembretes', (req, res) => {
   //devolver o recurso criado e, mais ainda, ajustar o código de status para 201
   res.status(201).json(lembretes[id])
 })
+
+app.listen(PORT, () => console.log(`Lembrete. Porta ${PORT}`))
