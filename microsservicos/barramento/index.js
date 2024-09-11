@@ -11,7 +11,8 @@ const { PORT } = process.env
 //POST /eventos
 app.post('/eventos', (req, res) => {
   //1. pega o corpo da requisição
-  const evento = req.body  
+  const evento = req.body 
+  console.log(evento) 
   //2. envia para o mss de lembretes na porta 4000 (post /eventos)
   axios.post('http://localhost:4000/eventos', evento)
   //3. envia para o mss de observações na porta 5000 (post /eventos)

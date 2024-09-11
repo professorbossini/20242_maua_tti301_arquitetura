@@ -1,6 +1,7 @@
 //lembre-se de lidar com o .env e o .env.example
 require('dotenv').config()
 const express = require('express')
+const axios = require('axios')
 const {v4: uuidv4} = require('uuid')
 const app = express()
 app.use(express.json())
@@ -61,7 +62,7 @@ app.get('/lembretes/:idLembrete/observacoes', (req, res) => {
 //POST /lembretes/idLembrete/observacoes
 //suba o serviço na porta 5000
 //{texto: comprar açúcar}
-app.post('/lembretes/:idLembrete/observacoes', function(req, res){
+app.post('/lembretes/:idLembrete/observacoes', async function(req, res){
   const idObservacacao = uuidv4()
   const { texto } = req.body
   const observacoesDoLembrete = observacoesPorLembrete[req.params.idLembrete] || []
@@ -69,6 +70,14 @@ app.post('/lembretes/:idLembrete/observacoes', function(req, res){
   //indexar a base geral de idLembrete e associar a coleção de observações
   observacoesPorLembrete[req.params.idLembrete] = observacoesDoLembrete
   // HATEOAS
+  await axios.post('http://localhost:10000/eventos', {
+    type: 'ObservacaoCriada',
+    payload: {
+      id: idObservacacao,
+      texto,
+      lembreteId: req.params.idLembrete
+    }
+  })
   res.status(201).json(observacoesDoLembrete)
 
 })
