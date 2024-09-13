@@ -27,8 +27,13 @@ app.get('/lembretes', (req, res) => {
 
 //POST /eventos
 app.post('/eventos', (req, res) => {
-  const evento = req.body
-  funcoes[evento.type](evento.payload)  
+  try{
+    const evento = req.body
+    console.log(evento)
+    funcoes[evento.type](evento.payload)  
+  }
+  catch(err){}
+  res.json({msg: 'ok'})
 })
 
 

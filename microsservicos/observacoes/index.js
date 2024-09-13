@@ -46,7 +46,13 @@ const { PORT } = process.env
 }    
 */
 const observacoesPorLembrete = {}
+//1. Definir o tratamento do evento ObservacaoClassificada
+//A função associada recebe uma observação
+//Ela deve encontrar essa observação na base local do mss de observacoes e fazer a atualizacao de status
+//Ela deve emitir evento direcionado ao barramento de eventos, que deve ser do tipo ObservacaoAtualizada e deve ter como payload a observacao recebida, claro, incluindo o status
+const funcoes = {
 
+}
 
 
 //3.
@@ -66,7 +72,11 @@ app.post('/lembretes/:idLembrete/observacoes', async function(req, res){
   const idObservacacao = uuidv4()
   const { texto } = req.body
   const observacoesDoLembrete = observacoesPorLembrete[req.params.idLembrete] || []
-  observacoesDoLembrete.push({id: idObservacacao, texto})
+  observacoesDoLembrete.push({
+    id: idObservacacao, 
+    texto,
+    status: 'aguardando'
+  })
   //indexar a base geral de idLembrete e associar a coleção de observações
   observacoesPorLembrete[req.params.idLembrete] = observacoesDoLembrete
   // HATEOAS
@@ -75,7 +85,8 @@ app.post('/lembretes/:idLembrete/observacoes', async function(req, res){
     payload: {
       id: idObservacacao,
       texto,
-      lembreteId: req.params.idLembrete
+      lembreteId: req.params.idLembrete,
+      status: 'aguardando'
     }
   })
   res.status(201).json(observacoesDoLembrete)
@@ -84,8 +95,12 @@ app.post('/lembretes/:idLembrete/observacoes', async function(req, res){
 
 
 app.post('/eventos', (req, res) => {
-  console.log(req.body)
-  res.status(200).json({mensagem: 'ok'})
+  try{
+    const evento = req.body
+    console.log(evento)
+  }
+  catch(err){}
+  res.json({msg: 'ok'})
 })
 
 app.listen(PORT, () => console.log(`Observações. PORTA ${PORT}.`))
