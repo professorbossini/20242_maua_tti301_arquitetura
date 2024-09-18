@@ -51,7 +51,20 @@ const observacoesPorLembrete = {}
 //Ela deve encontrar essa observação na base local do mss de observacoes e fazer a atualizacao de status
 //Ela deve emitir evento direcionado ao barramento de eventos, que deve ser do tipo ObservacaoAtualizada e deve ter como payload a observacao recebida, claro, incluindo o status
 const funcoes = {
-
+  ObservacaoClassificada:(observacao) => {
+    const observacoes = observacoesPorLembrete[observacao.lembreteId]
+    const obsParaAtualizar = observacoes.find(o => o.id === observacao.id)
+    obsParaAtualizar.status = observacao.status
+    axios.post('http://localhost:10000/eventos', {
+      type: "ObservacaoAtualizada",
+      payload: {
+        id: observacao.id,
+        texto: observacao.texto,
+        lembreteId: observacao.lembreteId,
+        status: observacao.status
+      }
+    })  
+  }
 }
 
 
@@ -98,6 +111,7 @@ app.post('/eventos', (req, res) => {
   try{
     const evento = req.body
     console.log(evento)
+    funcoes[evento.type](evento.payload)
   }
   catch(err){}
   res.json({msg: 'ok'})

@@ -27,4 +27,13 @@ app.post('/eventos', (req, res) => {
   res.json({msg: 'ok'})
 })
 
-app.listen(PORT, () => console.log(`Classificação. Porta: ${PORT}.`))
+app.listen(PORT, async () => {
+  console.log(`Classificação. Porta: ${PORT}.`)
+  const resp = await axios.get('http://localhost:10000/eventos')
+  resp.data.forEach((valor, indice, colecao) => {
+    try {
+      funcoes[valor.type](valor.payload)
+    }
+    catch (err) { }
+  })
+})
