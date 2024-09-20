@@ -1,0 +1,11 @@
+
+Plano 1:
+- Adicionar um microsserviço de logs à arquitetura implementada até então
+- Ele recebe todos os eventos e registra, em uma base própria, a ocorrência de cada um
+- Exemplo: Se acontecer um evento LembreteCriado, o mss de logs registra essa ocorrência em sua base
+id,tipo_evento,data_hora
+1,LembreteCriado,20/09/2024 16:00
+2,ObservacaoCriada,20/09/2024 16:05
+
+Plano 2:
+Trabalhar na implementação do T1
