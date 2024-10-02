@@ -1,4 +1,6 @@
-
+02/10
+Utilizando a apostila como referência, executar um comando interno ao contêiner em execução, capaz de exibir o código fonte da aplicação
+==============================================
 Plano 1:
 - Adicionar um microsserviço de logs à arquitetura implementada até então
 - Ele recebe todos os eventos e registra, em uma base própria, a ocorrência de cada um
