@@ -32,7 +32,7 @@ app.post('/lembretes', (req, res) => {
   //adicionar à base, assim: {15: {id: 15, texto: fazer café}}
   lembretes[id] = lembrete
   //usar a axios para emitir o evento
-  axios.post('http://localhost:10000/eventos', {
+  axios.post('http://192.168.79.167:10000/eventos', {
     type: 'LembreteCriado',
     payload: {
       id, texto: req.body.texto
