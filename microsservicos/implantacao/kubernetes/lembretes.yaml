@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tti301-lembretes
+spec:
+  containers:
+    - name: tti301-lembretes
+      image: rodbossini/tti301-lembretes:0.0.1
+      resources:
+        limits:
+          memory: 256Mi
+          cpu: 1

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tti301-lembretes-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tti301-lembretes
+  template:
+    metadata:
+      labels:
+        app: tti301-lembretes
+    spec:
+      containers:
+        - name: tti301-lembretes
+          image: rodbossini/tti301-lembretes:0.0.1
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: 1
