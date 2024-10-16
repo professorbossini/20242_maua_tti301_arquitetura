@@ -15,24 +15,24 @@ app.post('/eventos', async (req, res) => {
   eventos.push(evento)
   console.log(evento) 
   try{
-    await axios.post('http://192.168.79.167:4000/eventos', evento)
+    await axios.post('http://tti301-lembretes-clusterip-service:4000/eventos', evento)
   }
   catch(err){}
-  try{
-    await axios.post('http://192.168.79.167:5000/eventos', evento)
-  }
-  catch(err){
-  }
-  try{
-    await axios.post('http://192.168.79.167:6000/eventos', evento)
-  }
-  catch(err){
-  }
-  try {
-    await axios.post('http://192.168.79.167:7000/eventos', evento)
-  }
-  catch (err) {}
-  res.status(200).json({mensagem: 'ok'})
+  // try{
+  //   await axios.post('http://192.168.79.167:5000/eventos', evento)
+  // }
+  // catch(err){
+  // }
+  // try{
+  //   await axios.post('http://192.168.79.167:6000/eventos', evento)
+  // }
+  // catch(err){
+  // }
+  // try {
+  //   await axios.post('http://192.168.79.167:7000/eventos', evento)
+  // }
+  // catch (err) {}
+  // res.status(200).json({mensagem: 'ok'})
 })
 
 

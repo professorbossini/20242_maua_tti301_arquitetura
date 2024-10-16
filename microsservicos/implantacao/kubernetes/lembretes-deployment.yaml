@@ -14,8 +14,22 @@ spec:
     spec:
       containers:
         - name: tti301-lembretes
-          image: rodbossini/tti301-lembretes:0.0.1
+          image: rodbossini/tti301-lembretes
+          imagePullPolicy: Never
           resources:
             limits:
               memory: 256Mi
               cpu: 1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tti301-lembretes-clusterip-service
+spec:
+  selector:
+    app: tti301-lembretes
+  ports:
+    - name: tti301-lembretes
+      protocol: TCP
+      port: 4000
+      targetPort: 4000

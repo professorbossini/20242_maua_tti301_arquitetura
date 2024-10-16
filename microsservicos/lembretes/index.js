@@ -32,7 +32,7 @@ app.post('/lembretes', (req, res) => {
   //adicionar à base, assim: {15: {id: 15, texto: fazer café}}
   lembretes[id] = lembrete
   //usar a axios para emitir o evento
-  axios.post('http://192.168.79.167:10000/eventos', {
+  axios.post('http://tti301-barramento-de-eventos-service:10000/eventos', {
     type: 'LembreteCriado',
     payload: {
       id, texto: req.body.texto
@@ -47,4 +47,9 @@ app.post('/eventos', (req, res) => {
   res.status(200).json({mensagem: 'ok'})
 })
 
-app.listen(PORT, () => console.log(`Lembrete. Porta ${PORT}`))
+app.listen(PORT, () => {
+  console.log(process.env.HOSTNAME)
+  console.log('yet another version')
+  console.log('Nova versão')
+  console.log(`Lembrete. Porta ${PORT}`)
+})

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tti301-barramento-de-eventos-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tti301-barramento-de-eventos
+  template:
+    metadata:
+      labels:
+        app: tti301-barramento-de-eventos
+    spec:
+      containers:
+        - name: tti301-barramento-de-eventos
+          image: rodbossini/tti301-barramento-de-eventos
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tti301-barramento-de-eventos-service
+spec:
+  selector:
+    app: tti301-barramento-de-eventos
+  type: ClusterIP
+  ports:
+    - name: tti301-barramento-de-eventos
+      protocol: TCP
+      port: 10000
+      targetPort: 10000
