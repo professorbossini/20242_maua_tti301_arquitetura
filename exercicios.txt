@@ -1,3 +1,7 @@
+18/10
+Completar a implantação utilizando Kubernetes e Docker
+- Crie os Deployments e Services necessários para a criação de Pods e comunicação entre microsserviços
+==============================================
 02/10
 Utilizando a apostila como referência, executar um comando interno ao contêiner em execução, capaz de exibir o código fonte da aplicação
 ==============================================
