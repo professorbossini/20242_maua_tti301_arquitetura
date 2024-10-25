@@ -1,42 +1,35 @@
-//factory e suas variações
-class Pessoa { }
-//princípio: programe voltado a uma interface e não a uma implementação
-let p: Pessoa = new Pessoa()
+class Pato{}
+class PatoReal extends Pato{}
+class PatoDeCaca extends Pato{}
+class PatoDeBorracha extends Pato{}
 
-class Pato {
-
-}
-
-class PatoReal extends Pato {
-
-}
-
-class PatoDeCaca extends Pato {
-
-}
-
-class PatoDeBorracha extends Pato {
-
-}
-
-
+//viola o princípio aberto/fechado
 function qualPato(ocasiao: string): Pato | null {
-  let p: Pato | null = null
-  if (ocasiao === "piquenique")
-    p = new PatoReal()
+  let pato: Pato | null = null
+  if(ocasiao === "piquenique")
+    pato = new PatoReal()
   else if (ocasiao === "caça")
-    p = new PatoDeCaca()
-  else if (ocasiao === 'banheira')
-    p = new PatoDeBorracha()
-  return p
+    pato = new PatoDeCaca()
+  else if (ocasiao === "banheira")
+    pato = new PatoDeBorracha()
+  return pato
 }
 
-let ocasioes: string[] = [
-  'piquenique',
-  'caça',
-  'banheira'
+let ocasioes: string [] = [
+  'piquenique', 'caça', 'banheira'
 ]
 
-// 0 <= Math.random () < 1
+// 0 <= Math.random() < 1
 console.log(qualPato(ocasioes[Math.floor(Math.random() * 3)]))
 
+
+// indesejável
+// function teste(): void{
+//   //falar new é indesejável, surpreendentemente
+//   let pato: Pato = new Pato()  
+// }
+
+
+//Em java, seria assim: String hello;
+// let hello: string = 'Hello, Typescript!'
+// console.log(hello)
