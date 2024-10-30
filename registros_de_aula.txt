@@ -1,3 +1,7 @@
 Arquivo para quando não houve atualização para o Git
 
+30/10
+factory method apresentado e passado como exercício
+----------------------------------------
+old
 - Continuar da seção 4.3.68.14
